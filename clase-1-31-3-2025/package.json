@@ -1,0 +1,20 @@
+{
+  "name": "mi-primer-proyecto-de-node",
+  "version": "1.0.0",
+  "description": "un simple ejemplo de aplicación en node",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node app.js",
+    "variables": "node variables.js",
+    "destructuring": "node destructuring.js"
+  },
+  "keywords": [
+    "node",
+    "backend",
+    "arquitectura",
+    "utn"
+  ],
+  "author": "gabrielalberini",
+  "license": "ISC"
+}
