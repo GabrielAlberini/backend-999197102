@@ -34,3 +34,4 @@ const { nombreMascota, colores, raza } = mascota
 console.log(nombreDeMascota, "<- nombre de la mascota")
 console.log(colores, "<- colores de la mascota")
 console.log(raza, "<- raza de la mascota")
+

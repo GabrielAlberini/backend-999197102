@@ -1,0 +1,31 @@
+form {
+  width: 50%;
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+}
+
+form input {
+  display: inline-block;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+form button {
+  background-color: thistle;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: rgb(172, 161, 172);
+}
