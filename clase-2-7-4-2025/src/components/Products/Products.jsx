@@ -28,9 +28,6 @@ const Products = () => {
     evento.preventDefault()
     console.log("Enviando formulario!")
 
-    // CAPTURAR DATOS DEL FORM
-    console.log(newProducto)
-
     // ENVIARLO AL BACKEND
     const response = await fetch("https://fakestoreapi.com/products", {
       method: "POST",
