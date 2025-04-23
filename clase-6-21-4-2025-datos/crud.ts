@@ -32,8 +32,15 @@ const createUser = (name: string, password: string) => {
   console.log("Usuario creado con éxito")
 }
 
-const getUsers = () => {
-  return readDatabase()
+const getUsers = (email: string, pass: string) => {
+  const emailInDb = "gabi@gmail.com"
+  const passInDb = "pepe123"
+
+  if (email === emailInDb && pass === passInDb) {
+    return readDatabase()
+  } else {
+    return "Credenciales incorrectas"
+  }
 }
 
 // Comunicar que el usuario no éxiste en caso de que no se encuentre mediante su ID
@@ -53,4 +60,4 @@ const deleteUser = (id: string) => {
 }
 
 
-console.log(deleteUser("680634f0-c3cc-8013-8c49-eb1be8e4a3ed"))
+console.log(getUsers("gabi@gmail.com", "pepe123"))
