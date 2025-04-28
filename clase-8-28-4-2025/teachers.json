@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Laura Fernández",
+    "email": "laura.fernandez@example.com",
+    "department": "Matemáticas",
+    "experience_years": 12
+  },
+  {
+    "name": "Marcos García",
+    "email": "marcos.garcia@example.com",
+    "department": "Historia",
+    "experience_years": 9
+  },
+  {
+    "name": "Elena Morales",
+    "email": "elena.morales@example.com",
+    "department": "Física",
+    "experience_years": 15
+  },
+  {
+    "name": "Pablo Sánchez",
+    "email": "pablo.sanchez@example.com",
+    "department": "Literatura",
+    "experience_years": 8
+  },
+  {
+    "name": "Sofía Díaz",
+    "email": "sofia.diaz@example.com",
+    "department": "Informática",
+    "experience_years": 11
+  }
+]

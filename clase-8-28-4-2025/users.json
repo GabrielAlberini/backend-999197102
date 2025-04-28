@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Ana Gómez",
+    "email": "ana.gomez@example.com",
+    "address": "Calle Falsa 123, Madrid, España",
+    "age": 29
+  },
+  {
+    "name": "Carlos Pérez",
+    "email": "carlos.perez@example.com",
+    "address": "Av. Libertador 4567, Buenos Aires, Argentina",
+    "age": 35
+  },
+  {
+    "name": "Lucía Martínez",
+    "email": "lucia.martinez@example.com",
+    "address": "Rua das Flores 22, Lisboa, Portugal",
+    "age": 26
+  },
+  {
+    "name": "Miguel Rodríguez",
+    "email": "miguel.rodriguez@example.com",
+    "address": "Carrer Major 78, Barcelona, España",
+    "age": 41
+  },
+  {
+    "name": "Sofía Torres",
+    "email": "sofia.torres@example.com",
+    "address": "Av. Paulista 1000, São Paulo, Brasil",
+    "age": 31
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Matemáticas",
+    "teacher": "Laura Fernández",
+    "schedule": "Lunes y Miércoles 10:00-11:30",
+    "credits": 5
+  },
+  {
+    "name": "Historia Universal",
+    "teacher": "Marcos García",
+    "schedule": "Martes y Jueves 14:00-15:30",
+    "credits": 4
+  },
+  {
+    "name": "Física",
+    "teacher": "Elena Morales",
+    "schedule": "Lunes y Viernes 08:00-09:30",
+    "credits": 6
+  },
+  {
+    "name": "Literatura",
+    "teacher": "Pablo Sánchez",
+    "schedule": "Miércoles y Viernes 12:00-13:30",
+    "credits": 3
+  },
+  {
+    "name": "Programación",
+    "teacher": "Sofía Díaz",
+    "schedule": "Martes y Jueves 16:00-17:30",
+    "credits": 5
+  }
+]
