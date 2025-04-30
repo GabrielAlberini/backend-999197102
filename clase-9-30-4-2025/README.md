@@ -22,3 +22,40 @@
 
 - Eliminar todos los productos cuyo stock sea igual a 0.
 
+# 📚 Consigna: CRUD de Libros en MongoDB usando TypeScript
+
+**Objetivo:**
+Crear una serie de funciones que permitan administrar una colección de libros utilizando mongoose y TypeScript, sin servidor, solo desde un archivo ejecutable con funciones.
+
+## 🧩 Modelo de libro
+Cada libro debe tener los siguientes campos:
+
+- title (string, requerido) — título del libro
+
+- author (string, requerido) — autor/a del libro
+
+- publishedYear (number, requerido) — año de publicación
+
+- genre (string, requerido) — género literario
+
+- available (boolean, opcional, default true) — si está disponible para préstamo
+
+## 🧪 Funciones a implementar
+
+createBook(book: BookData): 
+*Crea un nuevo libro.*
+
+getAllBooks(): 
+*Muestra todos los libros.*
+
+getBookById(id: string): 
+*Muestra un libro por su ID.*
+
+updateBook(id: string, data: Partial<BookData>): 
+*Actualiza cualquier campo del libro.*
+
+deleteBook(id: string): 
+*Elimina un libro por su ID.*
+
+(Opcional) getBooksByGenre(genre: string): 
+*Muestra los libros que pertenezcan a un género específico.*
