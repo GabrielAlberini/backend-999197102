@@ -40,6 +40,8 @@ const deleteUser = async (id: string) => {
   console.log(deletedUser)
 }
 
+deleteUser("pepe")
+
 // cuál es el usuario a actualizar -> id
 // qué es lo que voy a actualizar -> objeto con las nuevas actualizaciones
 
@@ -54,4 +56,4 @@ const updateUser = async (id: string, data: Partial<DataUser>) => {
   console.log(updatedUser)
 }
 
-updateUser("68122d4ece0c2c701c44cd3d", { age: 28 })
+// updateUser("68122d4ece0c2c701c44cd3d", { age: 28 })
