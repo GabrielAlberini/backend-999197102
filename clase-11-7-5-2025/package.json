@@ -1,0 +1,29 @@
+{
+  "name": "tp-mongo-backend-utn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn ./src/index.ts",
+    "build": "tsc",
+    "start": "tsc && node ./dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GabrielAlberini/tp-mongo-backend-utn.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GabrielAlberini/tp-mongo-backend-utn/issues"
+  },
+  "homepage": "https://github.com/GabrielAlberini/tp-mongo-backend-utn#readme",
+  "devDependencies": {
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "mongoose": "^8.14.1"
+  }
+}

@@ -70,7 +70,7 @@ const createBook = async (book: Book): Promise<QueryRes> => {
 const updateBook = async (id: string, dataBook: Partial<Book>) => {
   try {
     const updatedBook = await Book.findByIdAndUpdate(id, dataBook, { new: true })
-    if (!updateBook) {
+    if (!updatedBook) {
       return createRes(false, "error updating the book")
     }
     return createRes(true, "book updated successfully", updatedBook as Book)
@@ -86,8 +86,8 @@ const deleteBook = async (id: string) => {
       return createRes(false, "error to delete book")
     }
     return createRes(true, "book successfully deleted", deletedBook)
-  } catch (error) {
-
+  } catch (error: any) {
+    return createRes(false, (error.message))
   }
 }
 
