@@ -38,48 +38,119 @@ interface IUser {
 // obtener todos los usuarios
 const getAllUser = async () => {
   try {
-
+    const users = await User.find()
+    return {
+      success: true,
+      data: users,
+      message: "obetener todos los usuarios"
+    }
   } catch (error) {
-
+    // el error es una instancia de la clase Error
+    const e = error as Error
+    return {
+      success: false,
+      error: e.message
+    }
   }
 }
 
 // obtener un usuario por su id
 const getUserById = async (id: string) => {
   try {
-
+    const user = await User.findById(id)
+    if (!user) {
+      return {
+        success: false,
+        message: "usuario no encontrado"
+      }
+    }
   } catch (error) {
-
+    const e = error as Error
+    return {
+      success: false,
+      error: e.message
+    }
   }
 }
 
 // crear nuevo usuario
 const createUser = async (newUserData: IUser) => {
   try {
+    // validar newUserData
+    const { username, password, email } = newUserData
 
+    const newUser = new User({ username, password, email })
+
+    await newUser.save()
+
+    return {
+      success: true,
+      data: newUser,
+      message: "usuario creado con éxito"
+    }
   } catch (error) {
-
+    const e = error as Error
+    return {
+      success: false,
+      error: e.message
+    }
   }
 }
 
 // actualizar un usuario
 const updateUser = async (id: string, data: Partial<IUser>) => {
   try {
-
+    const updatedUser = await User.findByIdAndUpdate(id, data, { new: true })
+    if (updatedUser) {
+      return {
+        success: false,
+        message: "usuario no encontrado"
+      }
+    }
+    return {
+      success: true,
+      data: updatedUser,
+      message: "usuario actualizado con éxito"
+    }
   } catch (error) {
-
+    const e = error as Error
+    return {
+      success: false,
+      error: e.message
+    }
   }
 }
 // borrar un usuario
 const deleteUser = async (id: string) => {
   try {
-
+    const deletedUser = await User.findByIdAndDelete(id)
+    if (!deletedUser) {
+      return {
+        success: false,
+        message: "usuario no encontrado"
+      }
+    }
+    return {
+      success: true,
+      data: deletedUser._id,
+      message: "usuario borrado con éxito"
+    }
   } catch (error) {
-
+    const e = error as Error
+    return {
+      success: false,
+      error: e.message
+    }
   }
 }
 
 const main = async () => {
+  const users = await getAllUser()
+  // const user = await getUserById("6821fd1225f")
+  // const user = await createUser({ username: "pablo", email: "pablo@gmail.com", password: "pepe123" })
+  // const user = await updateUser("6821ffc0f44bddfb549e2679", { email: "pablonuevo@gmial.com" })
+  // const user = await deleteUser("6821ffc0f44bddfb549e2679")
+  console.log(users)
 }
 
 main()
