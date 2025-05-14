@@ -147,7 +147,7 @@ const deleteUser = async (id: string) => {
 const main = async () => {
   const users = await getAllUser()
   // const user = await getUserById("6821fd1225f")
-  // const user = await createUser({ username: "pablo", email: "pablo@gmail.com", password: "pepe123" })
+  // const user = await createUser({ username: "maria", email: 1, password: "maria123" })
   // const user = await updateUser("6821ffc0f44bddfb549e2679", { email: "pablonuevo@gmial.com" })
   // const user = await deleteUser("6821ffc0f44bddfb549e2679")
   console.log(users)
