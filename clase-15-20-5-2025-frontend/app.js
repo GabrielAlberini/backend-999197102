@@ -8,11 +8,12 @@ const authorInput = document.getElementById("author")
 const yearInput = document.getElementById("year")
 
 let isEditing = false
+let idToEdit = null
 
 const fetchingBooks = async () => {
   try {
     // por defecto el fetch es GET
-    const response = await fetch("http://localhost:1235/api/books")
+    const response = await fetch("https://api-books-utn.onrender.com/api/books")
     const responseToJson = await response.json()
 
     section.innerHTML = ""
@@ -43,57 +44,42 @@ const fetchingBooks = async () => {
 const addNewBook = async (e) => {
   e.preventDefault()
   try {
-    if (isEditing === false) {
-      const newBook = {
-        title: titleInput.value,
-        author: authorInput.value,
-        year: Number(yearInput.value)
-      }
-
-      const response = await fetch("http://localhost:1235/api/books", {
-        method: "POST",
-        body: JSON.stringify(newBook),
-        headers: { "Content-Type": "application/json" }
-      })
-
-      titleInput.value = ""
-      authorInput.value = ""
-      yearInput.value = ""
-
-      await fetchingBooks()
-    } else {
-      const id = updateBook()
-
-      const updateBook = {
-        title: titleInput.value,
-        author: authorInput.value,
-        year: Number(yearInput.value)
-      }
-
-      const response = await fetch("http://localhost:1235/api/books/" + id, {
-        method: "PATCH",
-        body: JSON.stringify(updateBook),
-        headers: { "Content-Type": "application/json" }
-      })
-
-      titleInput.value = ""
-      authorInput.value = ""
-      yearInput.value = ""
-
-      isEditing = false
-      await fetchingBooks()
+    const bookData = {
+      title: titleInput.value,
+      author: authorInput.value,
+      year: Number(yearInput.value)
     }
+
+    if (isEditing === false) {
+      await fetch("https://api-books-utn.onrender.com/api/books", {
+        method: "POST",
+        body: JSON.stringify(bookData),
+        headers: { "Content-Type": "application/json" }
+      })
+    } else {
+      await fetch("https://api-books-utn.onrender.com/api/books/" + idToEdit, {
+        method: "PATCH",
+        body: JSON.stringify(bookData),
+        headers: { "Content-Type": "application/json" }
+      })
+    }
+
+    titleInput.value = ""
+    authorInput.value = ""
+    yearInput.value = ""
+
+    isEditing = false
+    idToEdit = null
+    await fetchingBooks()
   } catch (error) {
     console.log(error)
   }
 }
 
-// DELETE - http://localhost:1235/api/books/682b324baabc5faa1acfa09b
-
 const deleteBook = async (id) => {
   try {
     if (confirm("Esta seguro de que quieres borrar este libro?")) {
-      const response = await fetch("http://localhost:1235/api/books/" + id, {
+      const response = await fetch("https://api-books-utn.onrender.com/api/books/" + id, {
         method: "DELETE"
       })
       fetchingBooks()
@@ -105,13 +91,12 @@ const deleteBook = async (id) => {
 
 const updateBook = (id, title, author, year) => {
   isEditing = true
+  idToEdit = id
   btnSubmit.textContent = "Editar libro"
 
   titleInput.value = title
   authorInput.value = author
   yearInput.value = year
-
-  return id
 }
 
 form.addEventListener("submit", addNewBook)
