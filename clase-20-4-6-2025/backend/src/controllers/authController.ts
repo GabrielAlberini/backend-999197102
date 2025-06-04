@@ -24,7 +24,7 @@ const register = async (req: Request, res: Response): Promise<any> => {
     res.status(201).json({
       success: true,
       message: "usuario creado con éxito",
-      data: newUser
+      data: { _id: newUser._id, username: newDataUser.username, email: newDataUser.email }
     })
   } catch (error) {
     const err = error as Error
