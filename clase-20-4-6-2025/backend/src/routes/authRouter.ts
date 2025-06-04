@@ -1,5 +1,5 @@
 import { Router } from "express"
-import { register } from "../controllers/authController"
+import { login, register } from "../controllers/authController"
 
 // http://localhost:1234/api/auth
 const authRouter = Router()
@@ -9,6 +9,8 @@ const authRouter = Router()
 authRouter.post("/register", register)
 
 // login
+// http://localhost:1234/api/auth/login
+authRouter.post("/login", login)
 
 
 export { authRouter }
