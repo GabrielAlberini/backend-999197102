@@ -4,15 +4,42 @@ const loginForm = document.querySelector("#login-form")
 registerForm.addEventListener("submit", async (e) => {
   e.preventDefault()
 
-  const inputUsername = document.getElementById("register-username")
-  const inputEmail = document.getElementById("register-email")
-  const inputPassword = document.getElementById("register-password")
+  const username = document.getElementById("register-username").value
+  const email = document.getElementById("register-email").value
+  const password = document.getElementById("register-password").value
   const result = document.getElementById("result")
 
+  const tieneCaracterEspecial = (str) => /[^A-Za-z0-9\s]/.test(str);
+
   const newDataUser = {
-    username: inputUsername.value,
-    email: inputEmail.value,
-    password: inputPassword.value
+    username,
+    email,
+    password
+  }
+
+  // validaciones
+  if (username.length < 4) {
+    result.textContent = "El nombre de usuario debe contener al menos 4 caracteres"
+    result.style.color = "red"
+    return
+  }
+
+  if (!email.includes("@") || !email.includes(".")) {
+    result.textContent = "Correo electronico invalido."
+    response.style.color = "red"
+    return
+  }
+
+  if (password.length < 6) {
+    result.textContent = "La contraseña debe tener al menos 6 caracteres."
+    result.style.color = "red"
+    return
+  }
+
+  if (!tieneCaracterEspecial(password)) {
+    result.textContent = "La contraseña debe tener al menos 1 caracter especial."
+    result.style.color = "red"
+    return
   }
 
   const response = await fetch("http://localhost:1234/api/auth/register", {
@@ -23,11 +50,10 @@ registerForm.addEventListener("submit", async (e) => {
 
   const data = await response.json()
 
-  inputUsername.value = ""
-  inputEmail.value = ""
-  inputPassword.value = ""
+  username.value = ""
+  email.value = ""
+  password.value = ""
 
-  console.log(data)
   if (data.success) {
     result.textContent = data.message
     result.style.color = "green"
