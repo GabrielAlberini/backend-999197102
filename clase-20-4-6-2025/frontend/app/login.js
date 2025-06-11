@@ -7,7 +7,11 @@ form.addEventListener("submit", async (e) => {
   const inputEmail = document.getElementById("register-email")
   const inputPassword = document.getElementById("register-password")
 
-  const newDataUser = { username: inputUsername.value, email: inputEmail.value, password: inputPassword.value }
+  const newDataUser = {
+    username: inputUsername.value,
+    email: inputEmail.value,
+    password: inputPassword.value
+  }
 
   const response = await fetch("http://localhost:1234/api/auth/register", {
     method: "POST",
