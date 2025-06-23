@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Layout } from "../components/Layout"
+import { validatePassword } from "../validators/register"
 
 const Register = () => {
   const [username, setUsername] = useState("")
@@ -19,9 +20,27 @@ const Register = () => {
     }
 
     // si el nombre de usuario tiene menos de 3 caracteres
+    if (username.length < 3 || username.length > 12) {
+      setError("El nombre debe tener al menos 3 caracteres y menos de 12 caracteres")
+      return
+    }
     // si la contraseña tiene menos de 4 caracteres
+    if (password.length < 4) {
+      setError("La contraseña debe tener al menos 4 caracteres")
+      return
+    }
+
     // si el email no tiene un @
-    // si la contraseña tiene al menos un caracter especial y una mayuscula
+    if (!email.includes("@")) {
+      setError("Debes incluir un correo electónico valido")
+      return
+    }
+
+    // si la contraseña tiene al menos un caracter especial
+    if (!validatePassword(password)) {
+      setError("Debes incluir un caracter especial en la contraseña")
+      return
+    }
 
     const newDataUser = { username, email, password }
 
@@ -67,7 +86,7 @@ const Register = () => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <label htmlFor="username">Correo electrónico:</label>
+        <label htmlFor="email">Correo electrónico:</label>
         <input
           type="email"
           id="email"
